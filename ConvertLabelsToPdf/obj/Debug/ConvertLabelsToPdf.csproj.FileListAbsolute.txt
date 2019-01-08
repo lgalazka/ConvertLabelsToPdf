@@ -9,3 +9,7 @@ C:\Projects\_OTHER\ConvertLabelsToPdf\ConvertLabelsToPdf\obj\Debug\ConvertLabels
 C:\Projects\_OTHER\ConvertLabelsToPdf\ConvertLabelsToPdf\obj\Debug\ConvertLabelsToPdf.csproj.CopyComplete
 C:\Projects\_OTHER\ConvertLabelsToPdf\ConvertLabelsToPdf\obj\Debug\ConvertLabelsToPdf.exe
 C:\Projects\_OTHER\ConvertLabelsToPdf\ConvertLabelsToPdf\obj\Debug\ConvertLabelsToPdf.pdb
+C:\Projects\_OTHER\ConvertLabelsToPdf\ConvertLabelsToPdf\bin\Debug\CommandLine.dll
+C:\Projects\_OTHER\ConvertLabelsToPdf\ConvertLabelsToPdf\bin\Debug\System.Console.dll
+C:\Projects\_OTHER\ConvertLabelsToPdf\ConvertLabelsToPdf\bin\Debug\System.Reflection.TypeExtensions.dll
+C:\Projects\_OTHER\ConvertLabelsToPdf\ConvertLabelsToPdf\bin\Debug\CommandLine.xml

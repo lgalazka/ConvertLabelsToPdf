@@ -1,18 +1,39 @@
 using System;
 using System.Linq;
+using CommandLine;
+using ConvertLabelsToPdf.CommandLineUtils;
 
 namespace ConvertLabelsToPdf
 {
     class Program
     {
+        private static Options _options;
+        private static string _parsingErrors;
+
         static void Main(string[] args)
         {
-            if (ParseArguments(args))
+            if (!ParseArguments(args))
             {
+                ShowOutput();
                 return;
             }
 
-            Console.WriteLine("Program invoked without any or with invalid parameters!");
+            string sourceDirectoryPath = _options.SourceDirectory;
+            string targetDirectoryPath = _options.TargetDirectory;
+            string targetPdfFileName = _options.TargetPdfFileName;
+
+            if (!Validator.ValidateParameters(sourceDirectoryPath, targetDirectoryPath, targetPdfFileName))
+            {
+                ShowOutput(Validator.ErrorMessage);
+                return;
+            }
+
+            Converter.GeneratePdfFromSourceImages(sourceDirectoryPath, targetDirectoryPath, targetPdfFileName);
+        }
+
+        private static void ShowOutput(string message = "")
+        {
+            Console.WriteLine(message);
             Console.WriteLine("Press any key to exit ...");
             Console.ReadKey(true);
         }
@@ -24,9 +45,17 @@ namespace ConvertLabelsToPdf
                 return false;
             }
 
-            var parseResult = false;
+            ParserResult<Options> result = Parser
+                .Default
+                .ParseArguments<Options>(
+                    args)
+                .WithParsed(
+                    options =>
+                        _options = options)
+                .WithNotParsed(errors =>
+                    _parsingErrors = errors.ToString());
 
-            return parseResult;
+            return result != null && result.Tag == ParserResultType.Parsed;
         }
     }
 

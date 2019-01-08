@@ -1,10 +1,15 @@
 ﻿namespace ConvertLabelsToPdf
 {
-    static class Converter
+    internal static class Converter
     {
-        public static void GeneratePdfFromSourceImages(string sourceDirectory, string targetDirectory, string targetPdfName)
+        public static bool IsConvertedSuccessfully { get; private set; }
+
+        public static string ErrorMessage { get; private set; }
+
+        public static void GeneratePdfFromSourceImages(string sourceDirectoryPath, string targetDirectoryPath, string targetPdfFileName)
         {
-            throw new System.NotImplementedException();
+            ErrorMessage = "";
+            IsConvertedSuccessfully = true;
         }
     }
 }
