@@ -4,11 +4,13 @@ using ConvertLabelsToPdf.CommandLineUtils;
 
 namespace ConvertLabelsToPdf
 {
-    class Program
+    internal static class Program
     {
         private static Options _options;
+        private static ConsoleColor _errorColor = ConsoleColor.Red;
+        private static ConsoleColor _successColor = ConsoleColor.Green;
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             if (!ParseArguments(args))
             {
@@ -22,18 +24,24 @@ namespace ConvertLabelsToPdf
 
             if (!Validator.ValidateParameters(sourceDirectoryPath, targetDirectoryPath, targetPdfFileName))
             {
-                ShowOutput(Validator.ErrorMessage);
+                ShowOutput(Validator.ErrorMessage, _errorColor);
                 return;
             }
 
             Converter.GeneratePdfFromSourceImages(sourceDirectoryPath, targetDirectoryPath, targetPdfFileName);
 
-            ShowOutput(Converter.IsConvertedSuccessfully ? "Conversion to pdf finished successfully!\n" : Converter.ErrorMessage);
+            ShowOutput(Converter.IsConvertedSuccessfully ? "Conversion to pdf finished successfully!\n" : Converter.ErrorMessage, _successColor);
         }
 
-        private static void ShowOutput(string message = "")
+        private static void ShowOutput(string message = "", ConsoleColor? color = null)
         {
+            if (color != null)
+            {
+                Console.ForegroundColor = (ConsoleColor)color;
+            }
+
             Console.WriteLine(message);
+            Console.ResetColor();
             Console.WriteLine("Press any key to exit ...");
             Console.ReadKey(true);
         }
@@ -52,5 +60,5 @@ namespace ConvertLabelsToPdf
         }
     }
 
-    //by re.solved, re.solved.pl@gmail.com
+    //by (lga) lukagalazka@gmail.com
 }
