@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using CommandLine;
 using ConvertLabelsToPdf.CommandLineUtils;
 
@@ -8,7 +7,6 @@ namespace ConvertLabelsToPdf
     class Program
     {
         private static Options _options;
-        private static string _parsingErrors;
 
         static void Main(string[] args)
         {
@@ -29,6 +27,8 @@ namespace ConvertLabelsToPdf
             }
 
             Converter.GeneratePdfFromSourceImages(sourceDirectoryPath, targetDirectoryPath, targetPdfFileName);
+
+            ShowOutput(Converter.IsConvertedSuccessfully ? "Conversion to pdf finished successfully!\n" : Converter.ErrorMessage);
         }
 
         private static void ShowOutput(string message = "")
@@ -40,20 +40,13 @@ namespace ConvertLabelsToPdf
 
         private static bool ParseArguments(string[] args)
         {
-            if (args == null || !args.Any())
-            {
-                return false;
-            }
-
             ParserResult<Options> result = Parser
                 .Default
                 .ParseArguments<Options>(
                     args)
                 .WithParsed(
                     options =>
-                        _options = options)
-                .WithNotParsed(errors =>
-                    _parsingErrors = errors.ToString());
+                        _options = options);
 
             return result != null && result.Tag == ParserResultType.Parsed;
         }

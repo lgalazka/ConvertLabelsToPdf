@@ -9,11 +9,20 @@ namespace ConvertLabelsToPdf
 
         public static bool ValidateParameters(string sourceDirectoryPath, string targetDirectoryPath, string targetPdfFileName)
         {
-            if (!string.IsNullOrEmpty(sourceDirectoryPath) && !DirectoryExists(sourceDirectoryPath))
+            if (!string.IsNullOrEmpty(sourceDirectoryPath))
             {
-                ErrorMessage += $"Source directory path: [{sourceDirectoryPath}], does not exist. \n";
+                if (!DirectoryExists(sourceDirectoryPath))
+                {
+                    ErrorMessage += $"Source directory path: [{sourceDirectoryPath}], does not exist. \n";
 
-                return false;
+                    return false;
+                }
+
+                if (Directory.GetFiles(sourceDirectoryPath).Length == 0)
+                {
+                    ErrorMessage += $"Source directory path: [{sourceDirectoryPath}], contains no files. \n";
+                    return false;
+                }
             }
 
             if (!string.IsNullOrEmpty(targetDirectoryPath) && !DirectoryExists(targetDirectoryPath))
@@ -34,7 +43,7 @@ namespace ConvertLabelsToPdf
 
             if (!isValidName)
             {
-                ErrorMessage = $"Given name value: [{targetPdfFileName}], is not valid for file name.";
+                ErrorMessage = $"Target pdf file name value: [{targetPdfFileName}], is not valid for file name.";
             }
 
             return isValidName;
