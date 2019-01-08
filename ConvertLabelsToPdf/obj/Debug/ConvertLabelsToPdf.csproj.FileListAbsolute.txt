@@ -1,0 +1,11 @@
+C:\Projects\_OTHER\ConvertLabelsToPdf\ConvertLabelsToPdf\bin\Debug\ConvertLabelsToPdf.exe.config
+C:\Projects\_OTHER\ConvertLabelsToPdf\ConvertLabelsToPdf\bin\Debug\ConvertLabelsToPdf.exe
+C:\Projects\_OTHER\ConvertLabelsToPdf\ConvertLabelsToPdf\bin\Debug\ConvertLabelsToPdf.pdb
+C:\Projects\_OTHER\ConvertLabelsToPdf\ConvertLabelsToPdf\bin\Debug\PdfSharp.dll
+C:\Projects\_OTHER\ConvertLabelsToPdf\ConvertLabelsToPdf\bin\Debug\PdfSharp.pdb
+C:\Projects\_OTHER\ConvertLabelsToPdf\ConvertLabelsToPdf\bin\Debug\de\PdfSharp.resources.dll
+C:\Projects\_OTHER\ConvertLabelsToPdf\ConvertLabelsToPdf\obj\Debug\ConvertLabelsToPdf.csprojAssemblyReference.cache
+C:\Projects\_OTHER\ConvertLabelsToPdf\ConvertLabelsToPdf\obj\Debug\ConvertLabelsToPdf.csproj.CoreCompileInputs.cache
+C:\Projects\_OTHER\ConvertLabelsToPdf\ConvertLabelsToPdf\obj\Debug\ConvertLabelsToPdf.csproj.CopyComplete
+C:\Projects\_OTHER\ConvertLabelsToPdf\ConvertLabelsToPdf\obj\Debug\ConvertLabelsToPdf.exe
+C:\Projects\_OTHER\ConvertLabelsToPdf\ConvertLabelsToPdf\obj\Debug\ConvertLabelsToPdf.pdb
